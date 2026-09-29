@@ -1,0 +1,671 @@
+@charset "UTF-8";
+
+/* ========================================
+   鬼八伝説の旅 2026.12.3-5  LP
+   great-turning.com / WordPress + Elementor + Astra
+   ※ h1-h6 は color / font-weight を明示（Astra対策）
+   ※ body は px 固定（Astraのスマホ基準対策）
+   ※ グリッドは必ずスマホ1列をセット
+   ======================================== */
+
+:root{
+  /* 和紙のような明るい配色で固定。端末のダークモードでも反転させない */
+  color-scheme: light;
+
+  --sumi:#1c1a17;
+  --sumi-l:#3d3833;
+  --gray:#6b635a;
+  --wash:#faf8f4;
+  --wash-d:#f0ebe2;
+  --line:#ddd5c8;
+  --aka:#9c2b2b;
+  --aka-d:#7d1f1f;
+  --kin:#a88b4a;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{
+  font-size:16px;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+body{
+  margin:0;
+  font-size:16px;
+  line-height:1.95;
+  color:var(--sumi);
+  background:var(--wash);
+  font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+img{ max-width:100%; height:auto; display:block; }
+
+figure{ margin:0; }
+
+h1,h2,h3,h4,h5,h6{
+  color:var(--sumi);
+  font-weight:700;
+  line-height:1.5;
+  margin:0;
+  letter-spacing:.04em;
+}
+
+p{ margin:0 0 1.4em; }
+p:last-child{ margin-bottom:0; }
+
+.wrap{ max-width:880px; margin:0 auto; padding:0 24px; }
+
+/* ---------- セクション共通 ---------- */
+.sec{ padding:88px 0; }
+.sec--tight{ padding:64px 0; }
+.sec--dark{ background:var(--sumi); color:#e8e2d8; }
+.sec--dark h2,.sec--dark h3,.sec--dark h4{ color:#f4efe6; }
+.sec--wash{ background:var(--wash-d); }
+
+.sec-head{ text-align:center; margin-bottom:52px; }
+
+.sec-head .en{
+  display:block;
+  font-size:11px;
+  letter-spacing:.34em;
+  color:var(--kin);
+  font-weight:700;
+  margin-bottom:14px;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+}
+
+.sec-head h2{
+  font-size:29px;
+  color:var(--sumi);
+  font-weight:700;
+}
+
+.sec--dark .sec-head h2{ color:#f4efe6; }
+
+.sec-head .lead{
+  margin-top:18px;
+  font-size:16px;
+  color:var(--gray);
+}
+
+.sec--dark .sec-head .lead{ color:#b8b0a4; }
+
+/* ---------- ヒーロー ---------- */
+.hero{ position:relative; color:#fff; }
+
+.hero__img{
+  width:100%;
+  height:76vh;
+  height:76svh;
+  min-height:480px;
+  max-height:760px;
+  object-fit:cover;
+  object-position:center 58%;
+  filter:brightness(.62) saturate(.9);
+}
+
+.hero__inner{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:0 24px;
+}
+
+.hero__date{
+  font-size:13px;
+  letter-spacing:.3em;
+  margin-bottom:26px;
+  padding-bottom:14px;
+  border-bottom:1px solid rgba(255,255,255,.5);
+  color:#fff;
+}
+
+.hero h1{
+  font-size:46px;
+  color:#fff;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-shadow:0 2px 24px rgba(0,0,0,.5);
+}
+
+.hero__sub{
+  margin-top:24px;
+  font-size:19px;
+  line-height:1.9;
+  color:#f2ece2;
+  text-shadow:0 2px 16px rgba(0,0,0,.6);
+}
+
+.hero__meta{
+  margin-top:30px;
+  font-size:14px;
+  letter-spacing:.14em;
+  color:#e6dfd2;
+}
+
+/* ---------- 導入 ---------- */
+.intro{ text-align:center; }
+
+.intro__quote{
+  text-align:center;
+  font-size:30px;
+  line-height:1.8;
+  color:var(--sumi);
+  font-weight:700;
+  margin-bottom:44px;
+  letter-spacing:.06em;
+}
+
+.intro__body p{ font-size:17px; text-align:left; }
+
+.intro__body{ max-width:640px; margin:0 auto; }
+
+/* ---------- 伝説 ---------- */
+.legend{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  margin-top:8px;
+}
+
+.legend__card{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:34px 30px;
+}
+
+.legend__card h3{
+  font-size:20px;
+  color:var(--aka);
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.legend__card .place{
+  display:block;
+  font-size:12px;
+  letter-spacing:.2em;
+  color:var(--gray);
+  margin-bottom:20px;
+}
+
+.legend__card p{ font-size:15px; line-height:1.9; }
+
+.legend__note{
+  margin-top:40px;
+  padding:26px 30px;
+  background:var(--wash-d);
+  border-left:3px solid var(--kin);
+  font-size:15px;
+}
+
+/* ---------- 祈りの柱 ---------- */
+.pillars{ counter-reset:p; }
+
+.pillar{
+  display:grid;
+  grid-template-columns:78px 1fr;
+  gap:28px;
+  padding:34px 0;
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+
+.pillar:last-child{ border-bottom:none; }
+
+.pillar__no{
+  font-size:13px;
+  letter-spacing:.2em;
+  color:var(--kin);
+  font-weight:700;
+  padding-top:6px;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+}
+
+.pillar h3{
+  font-size:21px;
+  color:#f4efe6;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.pillar p{
+  font-size:15px;
+  color:#c3bbaf;
+  margin:0 0 1.2em;
+}
+
+.pillar p:last-child{ margin-bottom:0; }
+
+/* ---------- 案内人 ---------- */
+.guides{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:36px;
+}
+
+.guide{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:36px 32px;
+}
+
+.guide__role{
+  font-size:11px;
+  letter-spacing:.24em;
+  color:var(--kin);
+  font-weight:700;
+  display:block;
+  margin-bottom:12px;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+}
+
+.guide h3{
+  font-size:24px;
+  color:var(--sumi);
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.guide__kana{
+  display:block;
+  font-size:12px;
+  letter-spacing:.14em;
+  color:var(--gray);
+  margin-bottom:20px;
+}
+
+.guide p{ font-size:15px; line-height:1.9; }
+
+.guide__quote{
+  margin-top:20px;
+  padding-top:18px;
+  border-top:1px dashed var(--line);
+  font-size:14px;
+  color:var(--aka-d);
+}
+
+/* ---------- 行程 ---------- */
+.day{
+  border-top:1px solid var(--line);
+  padding:44px 0;
+}
+
+.day:last-of-type{ border-bottom:1px solid var(--line); }
+
+.day__head{ margin-bottom:26px; }
+
+.day__label{
+  display:inline-block;
+  font-size:11px;
+  letter-spacing:.22em;
+  color:#fff;
+  background:var(--sumi);
+  padding:5px 14px;
+  margin-bottom:14px;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+}
+
+.day__head h3{
+  font-size:25px;
+  color:var(--sumi);
+  font-weight:700;
+}
+
+.day__date{
+  display:block;
+  font-size:13px;
+  letter-spacing:.14em;
+  color:var(--gray);
+  margin-top:8px;
+}
+
+.day__body{
+  display:grid;
+  grid-template-columns:1fr 300px;
+  gap:36px;
+  align-items:start;
+}
+
+.spots{ margin:0; padding:0; list-style:none; }
+
+.spots li{
+  position:relative;
+  padding:0 0 18px 26px;
+  font-size:16px;
+  line-height:1.8;
+}
+
+.spots li::before{
+  content:"";
+  position:absolute;
+  left:4px;
+  top:12px;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--aka);
+}
+
+.spots li::after{
+  content:"";
+  position:absolute;
+  left:7px;
+  top:25px;
+  bottom:0;
+  width:1px;
+  background:var(--line);
+}
+
+.spots li:last-child{ padding-bottom:0; }
+.spots li:last-child::after{ display:none; }
+
+.spots strong{ font-weight:700; color:var(--sumi); }
+
+.spots .desc{
+  display:block;
+  font-size:14px;
+  color:var(--gray);
+  line-height:1.8;
+  margin-top:2px;
+}
+
+.day__img figcaption{
+  font-size:12px;
+  color:var(--gray);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.day__stay{
+  margin-top:24px;
+  padding:16px 20px;
+  background:var(--wash-d);
+  font-size:14px;
+}
+
+.day__stay strong{ color:var(--sumi); }
+
+/* ---------- 宿 ---------- */
+.stays{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:36px;
+}
+
+.stay figure{ margin:0 0 20px; }
+
+.stay h3{
+  font-size:20px;
+  color:var(--sumi);
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.stay__place{
+  display:block;
+  font-size:12px;
+  letter-spacing:.16em;
+  color:var(--gray);
+  margin-bottom:14px;
+}
+
+.stay p{ font-size:15px; }
+
+/* ---------- こんな方に ---------- */
+.forwhom{ max-width:660px; margin:0 auto; }
+
+.forwhom li{
+  list-style:none;
+  position:relative;
+  padding:16px 0 16px 38px;
+  border-bottom:1px dashed var(--line);
+  font-size:16px;
+}
+
+.forwhom ul{ margin:0; padding:0; }
+
+.forwhom li::before{
+  content:"";
+  position:absolute;
+  left:8px;
+  top:26px;
+  width:14px;
+  height:2px;
+  background:var(--aka);
+}
+
+/* ---------- 概要 ---------- */
+.info dl{
+  margin:0;
+  display:grid;
+  grid-template-columns:150px 1fr;
+  border-top:1px solid var(--line);
+}
+
+.info dt{
+  padding:20px 0;
+  font-size:14px;
+  letter-spacing:.1em;
+  color:var(--gray);
+  border-bottom:1px solid var(--line);
+  font-weight:700;
+}
+
+.info dd{
+  margin:0;
+  padding:20px 0;
+  font-size:16px;
+  border-bottom:1px solid var(--line);
+}
+
+.info dd .sub{
+  display:block;
+  font-size:14px;
+  color:var(--gray);
+  margin-top:6px;
+}
+
+.info dd .sub a{ color:var(--aka-d); text-decoration:none; border-bottom:1px solid var(--line); }
+
+.price{
+  font-size:28px;
+  font-weight:700;
+  color:var(--aka);
+  letter-spacing:.02em;
+}
+
+.incl{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+  margin-top:40px;
+}
+
+.incl__box{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:26px 26px 28px;
+}
+
+.incl__box h4{
+  font-size:15px;
+  color:var(--sumi);
+  font-weight:700;
+  margin-bottom:14px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--line);
+}
+
+.incl__box ul{ margin:0; padding:0; list-style:none; }
+
+.incl__box li{
+  font-size:14px;
+  line-height:1.9;
+  padding-left:16px;
+  position:relative;
+}
+
+.incl__box li::before{
+  content:"・";
+  position:absolute;
+  left:0;
+  color:var(--kin);
+}
+
+/* ---------- キャンセル ---------- */
+.cancel{
+  margin-top:40px;
+  padding:28px 30px;
+  background:var(--wash-d);
+  border:1px solid var(--line);
+}
+
+.cancel h4{
+  font-size:15px;
+  color:var(--sumi);
+  font-weight:700;
+  margin-bottom:14px;
+}
+
+.cancel ul{ margin:0 0 14px; padding:0; list-style:none; }
+
+.cancel li{
+  font-size:14px;
+  line-height:2;
+  border-bottom:1px dotted var(--line);
+  padding:4px 0;
+}
+
+.cancel p{ font-size:13px; color:var(--gray); margin:0; }
+
+/* ---------- 申込 ---------- */
+.cta{ text-align:center; }
+
+.cta h2{
+  font-size:28px;
+  color:#f4efe6;
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+.cta p{ color:#c3bbaf; font-size:16px; }
+
+.btn{
+  display:inline-block;
+  margin-top:28px;
+  padding:22px 68px;
+  background:var(--aka);
+  color:#fff;
+  font-size:19px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-decoration:none;
+  border:1px solid var(--aka);
+  transition:background .2s,color .2s;
+}
+
+.btn:hover{ background:transparent; color:#fff; }
+
+.cta__note{
+  margin-top:26px;
+  font-size:13px;
+  color:#a89f92;
+}
+
+/* ---------- フッター ---------- */
+.foot{
+  background:#141210;
+  color:#8c8378;
+  padding:44px 0;
+  text-align:center;
+  font-size:13px;
+}
+
+.foot a{ color:#a89f92; }
+
+.credit{
+  margin-top:22px;
+  font-size:11px;
+  line-height:1.9;
+  color:#6b645b;
+}
+
+/* ========================================
+   スマホ（固定px幅グリッドはすべて1列へ）
+   ======================================== */
+@media (max-width:700px){
+
+  body{ line-height:1.9; }
+
+  .wrap{ padding:0 20px; }
+
+  .sec{ padding:60px 0; }
+  .sec--tight{ padding:46px 0; }
+  .sec-head{ margin-bottom:38px; }
+  .sec-head h2{ font-size:23px; }
+
+  .hero__img{ height:66vh; min-height:420px; }
+  .hero h1{ font-size:30px; }
+  .hero__sub{ font-size:16px; margin-top:18px; }
+  .hero__date{ font-size:11px; letter-spacing:.2em; }
+  .hero__meta{ font-size:12px; }
+
+  .intro__quote{ font-size:22px; margin-bottom:32px; }
+  .intro__body p{ font-size:16px; }
+
+  .legend{ grid-template-columns:1fr; gap:24px; }
+  .legend__card{ padding:26px 22px; }
+
+  .pillar{ grid-template-columns:1fr; gap:10px; padding:26px 0; }
+  .pillar__no{ padding-top:0; }
+  .pillar h3{ font-size:19px; }
+
+  .guides{ grid-template-columns:1fr; gap:24px; }
+  .guide{ padding:28px 24px; }
+  .guide h3{ font-size:21px; }
+
+  .day{ padding:34px 0; }
+  .day__body{ grid-template-columns:1fr; gap:24px; }
+  .day__head h3{ font-size:21px; }
+
+  .stays{ grid-template-columns:1fr; gap:28px; }
+
+  .info dl{ grid-template-columns:1fr; }
+  .info dt{ padding:16px 0 0; border-bottom:none; }
+  .info dd{ padding:6px 0 16px; }
+  .price{ font-size:24px; }
+
+  .incl{ grid-template-columns:1fr; gap:20px; }
+
+  .cancel{ padding:22px 20px; }
+
+  .cta h2{ font-size:22px; }
+  .btn{ padding:18px 0; width:100%; font-size:17px; letter-spacing:.1em; }
+
+  .hero__img{ height:62svh; }
+  .hero__meta{ font-size:12px; letter-spacing:.08em; line-height:2; }
+  .hero__meta span{ display:block; }
+  .hero__meta span.hero__meta-sep{ display:none; }
+  .sec-head .en{ letter-spacing:.24em; font-size:10.5px; }
+  .day__head h3{ font-size:20px; }
+  .day__img figcaption{ font-size:11.5px; }
+  .spots li{ font-size:15.5px; }
+  .spots .desc{ font-size:13.5px; }
+  .guide__kana{ line-height:1.8; }
+  .foot{ padding:36px 0; }
+  .credit{ font-size:10.5px; }
+}
+
+/* 横向き・大きめのスマホ */
+@media (min-width:701px) and (max-width:900px){
+  .wrap{ padding:0 28px; }
+  .day__body{ grid-template-columns:1fr 240px; }
+}
