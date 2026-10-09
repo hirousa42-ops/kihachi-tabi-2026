@@ -426,6 +426,10 @@ p:last-child{ margin-bottom:0; }
 }
 
 .stay figure{ margin:0 0 20px; }
+.stay__cap{
+  margin-top:10px; font-size:14px; line-height:1.9; color:var(--usuzumi, #6b6e74);
+}
+.stay__cap strong{ color:var(--sumi, #2b2d31); font-weight:700; }
 
 .stay h3{
   font-size:20px;
@@ -695,4 +699,20 @@ p:last-child{ margin-bottom:0; }
 @media (min-width:701px) and (max-width:900px){
   .wrap{ padding:0 28px; }
   .day__body{ grid-template-columns:1fr 240px; }
+}
+
+
+/* ── 動画 ─────────────────────────── */
+.movie__frame{
+  position:relative; width:100%; max-width:900px; margin:0 auto;
+  padding-top:min(56.25%, 506px); border-radius:4px; overflow:hidden;
+  background:#000; box-shadow:0 10px 40px rgba(0,0,0,.35);
+}
+.movie__frame iframe{ position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+.movie__note{
+  max-width:900px; margin:26px auto 0; text-align:center;
+  font-size:15px; line-height:2; color:#b9bcc2;
+}
+@media (max-width:700px){
+  .movie__note{ font-size:14px; text-align:left; }
 }
